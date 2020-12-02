@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{titleps}
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+\usepackage[toc,nonumberlist]{glossaries}
+\usepackage{indentfirst}
+\usepackage{blindtext}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{xcolor}
+\usepackage{svg}
+
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter.\enspace}{0pt}{}
+\titleformat{\section}[hang]{\large\bfseries}{\thesection.\enspace}{0pt}{}
+
+\renewcommand{\contentsname}{Índex}
+
+\svgpath{{../img/svg}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	inputencoding=utf8/latin1,
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=true,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=4
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+	\title{Treball de Recerca: \\ Algoritmes d'ordenació}
+	\author{Joan Coma Bages}
+	\date{Curs 2020/2021}
+
+	\maketitle
+	\tableofcontents
+	
+	\include{content/intro}
+	\include{content/ordenar_vectors}
+	\include{content/selection}
+	\include{content/insertion}
+	\include{content/bubble}
+	\include{content/shell}
+	\include{content/quick}
+	\include{content/merge}
+	\include{content/comparacio}
+\end{document}
