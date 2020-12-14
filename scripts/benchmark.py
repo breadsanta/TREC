@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import bubble, insertion, merge, quick, selection, shell
 import json, utils, time
 import sys
@@ -11,10 +12,13 @@ results = {bubble.__name__: {}, insertion.__name__: {}, merge.__name__: {}, quic
 
 for alg in algs:
 	for batch in batches:
-		if bubble  == alg and batch > 4000:
+		if alg == bubble and batch > 4000:
 			break # el temps d'execució és massa llarg
+		
+		unsorted = utils.numbers(max=batch, count=batch)
+		
 		start = time.perf_counter()
-		alg.sort(utils.numbers(max=batch, count=batch))
+		alg.sort(unsorted)
 		end = time.perf_counter()
 		delta = end - start
 		results[alg.__name__][batch] = delta
