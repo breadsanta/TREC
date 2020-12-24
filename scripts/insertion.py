@@ -3,9 +3,12 @@ import utils
 
 def sort(array):
 	for i in range(len(array)):
-		for j in range(len(array[:i])):
-			if array[i] < array[j]:
-				array[i], array[j] = array[j], array[i]
+		comp = array[i]
+		j = i - 1
+		while j >= 0 and array[j] > comp:
+			array[j + 1] = array[j]
+			j -= 1
+		array[j + 1] = comp
 	return array
 
 if __name__ == "__main__":

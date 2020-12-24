@@ -1,6 +1,11 @@
 \chapter{Insertion sort}
 
 \section{Com funciona?}
+L'insertion sort itera sobre tots els elements de la llista i els va comparant amb els anteriors de manera que els elements a la dreta de l'actual quedin ordenats.
+
+Pas a pas això vol dir agafar d'entrada un sol element, el primer, que compararem amb els anteriors. Al ser el primer element no n'hi ha d'anteriors, el considerarem ordenat.
+En la seguent iteració agafem el segon element, aquest el compararem progressivament amb els anteriors. El nostre element, que es troba encara en la segona posició, el comparem amb l'anterior. Si l'anterior és major el nostre passarà davant d'aquest, si el nostre és menor quedarà darrere del primer.
+En les següents iteracions repetim: anem comparant amb els anteriors fins que trobem un element menor al nostre. Quan el trobem el nostre element el col·locarem a continuació del menor. Si després de comparar-lo amb tota la resta en trobéssim un de menor el deixariem al principi de la llista.
 \section{Pseudocodi}
 \section{Implementació}
 \lstinputlisting[language=Python]{../scripts/insertion.py}

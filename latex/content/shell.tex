@@ -1,5 +1,10 @@
 \chapter{Shell sort}
+
 \section{Com funciona?}
+L'ordenació shell és un algoritme que abans de comparar els elements que es troben un al costat de l'altre per tal de anar creant una llista ordenada progressivament el que fa és compartimentar la tasca agrupant nombres similars.
+
+Comença agafant el primer element, i no el compara amb el segon sinó amb l'enèsim, el que sigui més petit ocupa la posició del primer. Continua així fins que arriba al final de la llista, quan torna a començar però fent salts (entre el primer i l'enèsim element) més petits.
+La última iteració es fa amb passos d'u.
 \section{Pseudocodi}
 \section{Implementació}
 \lstinputlisting[language=Python]{../scripts/shell.py}
