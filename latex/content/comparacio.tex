@@ -1,2 +1,21 @@
 \chapter{Comparació dels algoritmes}
+Hem vist diversos algoritmes que permeten ordenar vectors, però quin és el millor mètode?
+Com que tots els algoritmes ens retornen el mateix vector, l'ordenat, no hi ha cap algoritme que ens retorni un vector millor ordenat que un altre. Ja que els resultats són tots igual de bons optarem pel que sigui més eficient.
+
+\section{Cost Computacional}
+L'estudi del cost computacional d'un algoritme és l'estudi de la quantitat de recursos que consumeix. Habitualment com a recurs es pren la memòria o, i aquest és el nostre cas, el temps.
+
+Fins ara hem executat tots els algoritmes per saber-ne el temps, però això no sempre és viable.
+Ho hem vist amb el bubble sort: només amb 4000 elements ja s'hi podia estar més d'un quart d'hora, motiu pel qual amb 8000 ni tan sols l'hem executat.
+Aquest problema apareixerà tard o d'hora amb tots els algoritmes, un ho fa als 8 mil elements i un altre ho pot fer als 8 milions, per tant és vital trobar la manera d'estimar-ne el temps de computació.
+
+Mentre el temps de computació d'un algoritme depèn del maquinari que l'executa la relació entre dues execucions amb diferent nombre d'elements no.
+Un algoritme que en duplicar el nombre d'elements duplica el temps d'execució ho farà independentment del maquinari.
+Això es deu al fet que cada instrucció (una comparació de dos elements o un canvi de posició) triga pràcticament el mateix, una fracció de mil·lisegon, en una mateixa màquina. 
+Per tant quan es mesura el temps realment es mesura el nombre de passos.
+
+\subsection{Càlcul}
+Comencem amb l'exemple d'abans, un algoritme que amb un nombre $n$ d'elements que en duplicar el nombre d'elements duplica el temps, és a dir, el nombre de passos.
+
+
 \includesvg{plot}

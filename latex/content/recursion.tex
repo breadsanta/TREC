@@ -1,0 +1,62 @@
+\chapter{Recursivitat}
+
+La recursivitat, en informàtica, és la propietat dels programes que en executar-se es criden a si mateixos.
+
+Problemes que poden ser dividits en parts més petites però iguals a l'original es poden resoldre així.
+A l'hora de programar cal prestar especial atenció a la condició de sortida, que hi hagi una manera de trencar el bucle de recursió. En cas contrari s'hi quedaria atrapat indefinidament (o fins que el programa es quedés sense memòria i s'aturés).
+
+\section{Factorials}
+El factorial d'un nombre (enter i no negatiu) $n$ és la multiplicació successiva de tots els nombres enters, començant per l'u, fins a $n$.
+Matemàticament això s'expressa de la següent manera:
+\begin{equation*}
+	n! = 1 \times 2 \times \ldots (n-1) \times n 
+\end{equation*}
+Per exemple, el factorial de 4, o $4!$, és el següent:
+\begin{equation*}
+	4! = 1 \times 2 \times 3 \times 4 = 24 
+\end{equation*}
+
+\subsection{Implementació no-recursiva}
+\lstinputlisting[language=Python]{examples/norec/factorial.py}
+
+\subsection{Implementació recursiva}
+\lstinputlisting[language=Python]{examples/rec/factorial.py}
+
+\section{Successió de Fibonacci}
+La successió de Fibonacci és una successió de nombres enters en què un nombre en posició $n$ és la suma dels dos anteriors.
+Per definició, els nombres en primera i segona posició són l'1. Els següents ja es poden calcular: el segon $1 + 1 = 2$, el tercer $1 + 2 = 3$, el quart $2 + 3 = 5$, etc.
+
+\subsection{Implementació no-recursiva}
+\lstinputlisting[language=Python]{examples/norec/fibonacci.py}
+
+\subsection{Implementació recursiva}
+\lstinputlisting[language=Python]{examples/rec/fibonacci.py}
+
+\section{Torres de Hanoi}
+Les Torres de Hanoi és un puzle que consisteix a moure discs apilats de diverses mides d'una fusta a una altra.
+Hi ha tres fustes i les regles són simples: només es pot canviar de lloc un disc a la vegada i un disc més gran no es pot posar sobre un de més petit.
+
+La resolució amb dos discs és simple. Comencen a la fusta A: movem el disc petit a la fusta B i a continuació movem l'altre a la fusta C. Finalment posem el primer disc sobre el gran, a la fusta C.
+
+Per resoldre el puzle amb tres discs primer hem d'aïllar els dos primers, si no, no podrem moure el tercer disc.
+Partint doncs de tenir una fusta A amb el tercer disc i una fusta C amb el primer sobre el segon fem el quart moviment: posar el tercer disc a fusta B.
+El que ens queda ara ja ho hem fet abans: tornar a canviar de fusta els primers dos discs. Aquesta vegada partint de la fusta C per acabar a la B, sobre el tercer disc.
+
+Això es va repetint a mesura que augmenta el nombre de discs, i també es pot observar una progressió matemàtica.
+Si prenem $H(n)$ com el nombre de moviments necessaris per resoldre el problema per un nombre $n$ de discs veiem que per $n=1$, $H(n)=1$ doncs només hi ha un sol disc i per moure'l a una altra fusta només cal un moviment.
+
+Amb $n=2$, $H(n)=3$, però a què es deu això? Per canviar de fusta dos discs primer hem de moure el primer ($H{(1)}$), després canviar el segon i tornar a moure el primer($H(1)$), per tant:
+\begin{gather*}
+	H(2) = H(1)+1+H(1) = 2[H(1)]+1 = 2(1)+1 = 2+1 = 3
+\end{gather*}
+
+Amb $n=3$, $H(n)=7$. Altra vegada per canviar de fusta tres discs primer hem de moure els dos primers ($H(2)$), després canviar el tercer i tornar a moure els dos primers ($H(2)$) per posar-los sobre el tercer, per tant:
+\begin{gather*}
+	H(3) = H(2)+1+H(2) = [H(1)+1+H(1)] + 1 + [H(1)+1+H(1)] = \\
+	= 2[H(1)+1+H(1)] + 1 = 2(3) + 1 = 6+1 = 7
+\end{gather*}
+
+\subsection{Implementació recursiva}
+La resolució algorítmica recursiva d'aquest puzle és molt interessant i ben senzilla.
+Si us hi fixeu, ja hem vist que la resolució per un nombre de discs $n$ inclou la resolució per un nombre de discs $n-1$.
+\lstinputlisting[language=Python]{examples/rec/hanoi.py}
