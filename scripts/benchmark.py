@@ -5,15 +5,16 @@ import json, utils, time, sys
 sys.setrecursionlimit(8000)
 
 algs = [bubble, insertion, merge, quick, selection, shell]
-batches = [125, 250, 500, 1000, 2000, 4000, 8000]
-iters = 5
+batches = [125, 250, 500]#, 1000, 2000, 4000, 8000]
+iters = 3
 
-results = {}
+results = []
 
-for alg in algs:
-	results[alg.__name__] = []
-	for i in range(iters):
-		results[alg.__name__].append({})
+
+for i in range(iters):
+	results.append({})
+	for alg in algs:
+		results[i].update({alg.__name__: {}})
 		print(results)
 		for batch in batches:
 			if alg == bubble and batch > 4000:
@@ -25,8 +26,8 @@ for alg in algs:
 			alg.sort(unsorted)
 			end = time.perf_counter()
 			delta = end - start
-			results[alg.__name__][i][batch] = delta
-			print(alg.__name__, i, batch, delta)
+			results[i][alg.__name__][batch] = delta
+			print(i, alg.__name__, batch, delta)
 
 print(results)
 
