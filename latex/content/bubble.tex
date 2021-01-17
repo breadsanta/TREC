@@ -2,17 +2,26 @@
 
 \section{Com funciona?}
 El bubble sort compara cada element de la llista amb el següent, canviant-ne la posició si el segon és més gran que el primer.
+Com que sempre movem endavant l'element més gran 
 Aquest procés es repeteix tantes vegades com faci falta per ordenar la llista.
 
-\section{Pseudocodi}
+\section{Pas a pas}
+\noindent
+\makebox[\textwidth][c]{
+	% \input{tikz/bubble.tex}
+}
 
 \section{Implementació}
 \lstinputlisting[language=Python]{../scripts/bubble.py}
 
-\section{Rendiment}
-\noindent
-\makebox[\textwidth][c]{
-	\input{tables/times/bubble.tex}
-}
-\vspace*{1em}
-\includesvg{bubble}
+\begin{minipage}{\textwidth}
+	\section{Rendiment}
+	\noindent
+	\makebox[\textwidth][c]{
+		\input{tables/times/bubble.tex}
+		}
+	\vspace*{1em}
+	\begin{center}
+		\includesvg{bubble}
+	\end{center}
+\end{minipage}

@@ -2,6 +2,9 @@
 __pycache__/
 .ipynb_checkpoints/
 
+# Visual Studio Code
+.vscode/
+
 ## Core pdflatex auxiliary files:
 *.aux
 *.lof

@@ -6,15 +6,19 @@ El quick sort és un algoritme recursiu, que divideix la llista inicial en dos i
 Es pren un element qualsevol que fa de pivot i separa els elements restants en funció de si són més grans o més petits que el pivot. Aquestes dues llistes de nombres menors i majors s'ordenaran de la mateixa manera.
 
 Una vegada les llistes contenen un sol element es comencen a ajuntar: la llista amb els nombres menors passa al davant, seguida del pivot i la dels nombres majors.
-\section{Pseudocodi}
+\section{Pas a pas}
 
 \section{Implementació}
 \lstinputlisting[language=Python]{../scripts/quick.py}
 
-\section{Rendiment}
-\noindent
-\makebox[\textwidth][c]{
-	\input{tables/times/quick.tex}
-}
-\vspace*{1em}
-\includesvg{quick}
+\begin{minipage}{\textwidth}
+	\section{Rendiment}
+	\noindent
+	\makebox[\textwidth][c]{
+		\input{tables/times/quick.tex}
+		}
+	\vspace*{1em}
+	\begin{center}
+		\includesvg{quick}
+	\end{center}
+\end{minipage}

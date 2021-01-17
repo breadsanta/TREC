@@ -1,0 +1,39 @@
+%% https://tex.stackexchange.com/questions/31336/how-can-i-display-an-array-as-in-the-data-structure-from-computer-science-not
+
+\usetikzlibrary{calc}
+
+\newcounter{nodeid}
+\newcounter{nodex}
+\newcounter{nodeheight}
+
+\tikzstyle{box} = [minimum size=6mm, draw, rectangle]
+
+\newcommand{\nodes}[1]{%
+	\foreach \num in {#1}{
+		% \node[minimum size=6mm, draw, rectangle] (\arabic{nodeid}) at (\arabic{nodex}, 0) {\num};
+		\node (\arabic{nodeid}) [box] at (\arabic{nodex}, -\nodeheight) {{\arabic{\num}};
+		\stepcounter{nodex}
+		\stepcounter{nodeid}
+	}
+}
+
+\newcommand{\newblock}{
+	\stepcounter{nodeheight}
+}
+
+\newcommand{\bracket}[4][]{% [text] {from, to, lvl}
+	\draw (#2.south west) ++($(-.1, -.1) + (-.1*#4, 0)$)
+	-- ++($(0,-.1) + (0,-#4*1.25em) $)
+	-- node [below] {#1} ($(#3.south east) + (.1,-.1) + (.1*#4, 0) + (0,-.1) + (0,-#4*1.25em)$)
+	-- ++($(0,#4*1.25em) + (0,.1)$);%
+}
+
+\newcommand{\setopacity}[1]{
+	\pgfsetstrokeopacity{#1}
+	\pgfsetfillopacity{#1}
+}
+
+\makeatletter
+\let\@tikzpicture\tikzpicture
+\def\tikzpicture{\@tikzpicture \setcounter{nodex}{1} \setcounter{nodeheight}{1}}
+\makeatother

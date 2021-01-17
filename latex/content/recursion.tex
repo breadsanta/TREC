@@ -9,11 +9,11 @@ A l'hora de programar cal prestar especial atenció a la condició de sortida, q
 El factorial d'un nombre (enter i no negatiu) $n$ és la multiplicació successiva de tots els nombres enters, començant per l'u, fins a $n$.
 Matemàticament això s'expressa de la següent manera:
 \begin{equation*}
-	n! = 1 \times 2 \times \ldots (n-1) \times n 
+	n! = n \times (n-1) \times (n-2) \times \ldots \times 2 \times 1 
 \end{equation*}
 Per exemple, el factorial de 4, o $4!$, és el següent:
 \begin{equation*}
-	4! = 1 \times 2 \times 3 \times 4 = 24 
+	4! = 4 \times 3 \times 2 \times 1 = 24 
 \end{equation*}
 
 \subsection{Implementació no-recursiva}
@@ -33,13 +33,17 @@ Per definició, els nombres en primera i segona posició són l'1. Els següents
 \lstinputlisting[language=Python]{examples/rec/fibonacci.py}
 
 \section{Torres de Hanoi}
-Les Torres de Hanoi és un puzle que consisteix a moure discs apilats de diverses mides d'una fusta a una altra.
+Les Torres de Hanoi és un problema que consisteix a moure discs apilats de diverses mides d'una fusta a una altra.
 Hi ha tres fustes i les regles són simples: només es pot canviar de lloc un disc a la vegada i un disc més gran no es pot posar sobre un de més petit.
 
 La resolució amb dos discs és simple. Comencen a la fusta A: movem el disc petit a la fusta B i a continuació movem l'altre a la fusta C. Finalment posem el primer disc sobre el gran, a la fusta C.
 
-Per resoldre el puzle amb tres discs primer hem d'aïllar els dos primers, si no, no podrem moure el tercer disc.
-Partint doncs de tenir una fusta A amb el tercer disc i una fusta C amb el primer sobre el segon fem el quart moviment: posar el tercer disc a fusta B.
+\begin{center}
+	\includesvg{hanoi-2_0}
+\end{center}
+
+Per resoldre el problema amb tres discs primer hem d'aïllar els dos primers, si no, no podrem moure el tercer disc.
+Partint doncs de tenir una fusta A amb el tercer disc i una fusta C amb el primer sobre el segon, fem el quart moviment: posar el tercer disc a la fusta B.
 El que ens queda ara ja ho hem fet abans: tornar a canviar de fusta els primers dos discs. Aquesta vegada partint de la fusta C per acabar a la B, sobre el tercer disc.
 
 Això es va repetint a mesura que augmenta el nombre de discs, i també es pot observar una progressió matemàtica.
@@ -57,6 +61,7 @@ Amb $n=3$, $H(n)=7$. Altra vegada per canviar de fusta tres discs primer hem de 
 \end{gather*}
 
 \subsection{Implementació recursiva}
-La resolució algorítmica recursiva d'aquest puzle és molt interessant i ben senzilla.
+La resolució algorítmica recursiva d'aquest problema és molt interessant i ben senzilla.
+De fet aquest problema sempre s'utilitza en parlar de recursivitat, perquè l'ús d'aquesta permet que . 
 Si us hi fixeu, ja hem vist que la resolució per un nombre de discs $n$ inclou la resolució per un nombre de discs $n-1$.
 \lstinputlisting[language=Python]{examples/rec/hanoi.py}

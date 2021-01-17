@@ -10,13 +10,13 @@ Ho hem vist amb el bubble sort: només amb 4000 elements ja s'hi podia estar mé
 Aquest problema apareixerà tard o d'hora amb tots els algoritmes, un ho fa als 8 mil elements i un altre ho pot fer als 8 milions, per tant és vital trobar la manera d'estimar-ne el temps de computació.
 
 El temps de computació d'un algoritme sempre depèn de la quantitat d'elements, és d'esperar que el que es triga a ordenar deu elements sigui menor que el d'ordenar-ne cent.
-El temps de computació també depèn del maquinari, però aquest factor el podem eliminar si observem la relació entre dues execucions amb diferent nombre d'elements no.
+El temps de computació també depèn del maquinari, però aquest factor el podem eliminar si observem la relació entre dues execucions amb diferent nombre d'elements.
 És a dir, un algoritme que en duplicar el nombre d'elements duplica el temps d'execució ho farà independentment del maquinari.
 El que calcularem, doncs, és aquest augment que no depèn del maquinari sinó de l'algoritme.
 %Això es deu al fet que cada instrucció (una comparació de dos elements o un canvi de posició) triga pràcticament el mateix, una fracció de mil·lisegon, en una mateixa màquina. 
 %Per tant quan es mesura el temps realment es mesura el nombre de passos.
 
-\subsection{Càlcul}
+\subsection{Fórmula}
 Comencem posant xifres a l'exemple anterior.
 Si el temps d'execució de l'algoritme per $n$ elements, és a dir el $t(n)$, és val també $n$, en duplicar el nombre d'elements $t(2n)$ serà $2n$.
 Veiem que el temps es duplica en duplicar el nombre d'elements amb la següent operació:
@@ -37,18 +37,30 @@ Dividint $t(2n)$ entre $t(n)$ podem obtenir la relació entre ambdós:
 	\frac{t(2n)}{t(n)} = \frac{2^p \cancel{n^p}}{\cancel{n^p}} = 2^p
 \end{gather*}
 
-Si seguim generalitzant trobem que per una relació entre les mides dels vectors $m$ la relació entre els temps és $m^p$.
+Si seguim generalitzant trobem que per una relació entre les mides dels vectors $m$ la relació entre els temps és $m^p$:
+\begin{gather*}
+	\frac{t(mn)}{t(n)} = m^p
+\end{gather*}
 
 Poder aproximar el valor de l'exponent $p$ serà clau per conèixer el temps de computació.
 La relació entre un vector de 10 elements i un de 10000 és $\frac{10000}{10} = 1000$. Amb un exponent $p$ d'1 només ens costaria mil vegades més ordenar un vector mil vegades més gran, ja que $1000^1 = 1000$.
 Si aquest exponent fos 2, el vector mil vegades més gran trigaria un milió de vegades el temps original, $1000^2 = 1000000$.
 
-Aïllarem $p$ de la següent manera:
+Partint de la fórmula generalitzada $\frac{t(mn)}{t(n)} = m^p
+$ que acabem d'obtenir aïllarem $p$ de la següent manera:
 \begin{gather*}
-	\frac{t(mn)}{t(n)} = m^p = \log\left(\frac{t(mn)}{t(n)}\right) = \log (m^p) = \log(m) \times p \Rightarrow \\
-	p = \frac{log\left(\frac{t(mn)}{t(n)}\right)}{log(m)} = \frac{\log(t(mn))-\log(t(n))}{\log(m)}
+	\frac{t(mn)}{t(n)} = m^p \Rightarrow \log\left(\frac{t(mn)}{t(n)}\right) = \log (m^p) = \log(m) \times p \Rightarrow \\
+	\Rightarrow p = \frac{log\left(\frac{t(mn)}{t(n)}\right)}{log(m)} = \frac{\log(t(mn))-\log(t(n))}{\log(m)}
 \end{gather*}
 
+\subsection{Càlcul}
+Si volem calcular l'exponent $p$ aplicant la fórmula que acabem de definir necessitem dos valors: temps d'execució per un nombre d'elements $n$ i el temps d'execució per un nombre d'elements $n \times m$.
+
+No és casualitat que tots els algoritmes els hàgim executat amb 125, 250, 500, 1000, 2000, 4000 i 8000 elements.
+Els més destres amb les xifres podran observar que cada nombre d'aquesta sèrie és el doble que l'anterior.
+Per calcular l'exponent
+
+\vspace*{1em}
 \noindent
 \makebox[\textwidth][c]{
 	\input{tables/df.tex}
@@ -63,6 +75,7 @@ Ara, amb els temps d'execució de cada algoritme, podem calcular el valor de $p$
 Prenem com a $n$ el nombre d'elements i com a $m$ 2 per calcular la relació amb la següent quantitat d'elements per completar la següent taula.
 La mitjana l'obtenim amb aquests valors i podem comprovar que té el mateix valor que l'exponent $p$ calculat amb els vectors més petit i més gran. $m$ en aquest cas té valor de 64 ($\frac{8000}{125} = 64$), excepte amb el bubble sort, que és de 32 ($\frac{4000}{125} = 32$, no l'hem executat amb 8000 elements).
 
+\vspace*{1em}
 \noindent
 \makebox[\textwidth][c]{
 	\input{tables/exp.tex}
@@ -73,4 +86,6 @@ Observem que el merge sort té el menor exponent, $p=1.1268$, seguit del shell s
 Lleugerament per sobre de 2, els algoritmes de selecció i inserció tenen valors de $p$ de $2.051$ i $2.0333$.
 Finalment, molt per sobre la resta, el bubble sort amb l'exponent $p$ de $3.0118$
 
-\includesvg{plot}
+\begin{center}
+	\includesvg{plot}
+\end{center}
