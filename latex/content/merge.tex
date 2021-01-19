@@ -3,10 +3,8 @@
 \section{Com funciona?}
 Aquest algoritme també és recursiu, divideix la llista en dues i treballa per separat cada meitat. El que fa amb cada meitat és el mateix: dividir-la en dues i repetir fins que es troba amb elements individuals, que compara i ordena formant parelles.
 
-Una vegada tenim les parelles (llistes de dos elements ordenats) podem reconstruir la llista següent: el que fa l'algoritme és agafar l'element més petit de una llista (el primer) i comparar-lo amb el més petit de l'altra. L'element més petit d'aquests dos es posa a la nova llista. El procés es va repetint fins que una llista es buida, aleshores els elements restants de l'altra es poden afegir al final (sempre respectant l'ordre entre ells).
+Una vegada tenim les parelles (llistes de dos elements ordenats) podem reconstruir la llista següent: el que fa l'algoritme és agafar l'element més petit d'una llista (el primer) i comparar-lo amb el més petit de l'altra. L'element més petit d'aquests dos es posa a la nova llista. El procés es va repetint fins que una llista es buida, aleshores els elements restants de l'altra es poden afegir al final (sempre respectant l'ordre entre ells).
 La següent llista aplica el mateix procediment, i així fins que es recupera la llista original, ara amb els elements ordenats.
-
-\section{Pas a pas}
 
 \section{Implementació}
 \lstinputlisting[language=Python]{../scripts/merge.py}
@@ -19,6 +17,6 @@ La següent llista aplica el mateix procediment, i així fins que es recupera la
 	}
 	\vspace*{1em}
 	\begin{center}
-		\includesvg{merge}
+		\resizebox{\textwidth}{!}{\includesvg{merge}}
 	\end{center}
 \end{minipage}

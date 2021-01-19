@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.92.5, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'hanoi-2_0_svg-tex.pdf' (pdf, eps, ps)
+%% Accompanies image file 'hanoi-3_3_svg-tex.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,10 +53,10 @@
   \begin{picture}(1,0.38212713)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{hanoi-2_0_svg-tex.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{hanoi-3_3_svg-tex.pdf}}%
     \put(0.20909091,0.00030895){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{A}\end{tabular}}}}%
     \put(0.5,0.00030895){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{B}\end{tabular}}}}%
     \put(0.79090909,0.00030895){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{C}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{hanoi-2_0_svg-tex.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{hanoi-3_3_svg-tex.pdf}}%
   \end{picture}%
 \endgroup%

@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 550 250">
+  <defs>
+    <style>
+      .peg, .text {
+        fill: black;
+      }
+
+      .text {
+        font-weight: 600;
+      }
+
+      .disk {
+        fill: #555;
+        stroke: black;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <rect class="peg" x="112.5" width="5" height="175"/>
+  <rect class="peg" x="272.5" width="5" height="175"/>
+  <rect class="peg" x="432.5" width="5" height="175"/>
+  <text class="text" text-anchor="middle" x="115" y="210" font-size="smaller">A</text>
+  <text class="text" text-anchor="middle" x="275" y="210">B</text>
+  <text class="text" text-anchor="middle" x="435" y="210">C</text>
+  <rect class="peg" y="175" width="550" height="10"/>
+  <rect class="disk a" x="237.5" y="140" width="75" height="35"/>
+  <rect class="disk b" x="372.5" y="140" width="125" height="35"/>
+  <rect class="disk c" x="27.5" y="140" width="175" height="35"/>
+</svg>

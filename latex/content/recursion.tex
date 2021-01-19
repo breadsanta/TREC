@@ -23,8 +23,8 @@ Per exemple, el factorial de 4, o $4!$, és el següent:
 \lstinputlisting[language=Python]{examples/rec/factorial.py}
 
 \section{Successió de Fibonacci}
-La successió de Fibonacci és una successió de nombres enters en què un nombre en posició $n$ és la suma dels dos anteriors.
-Per definició, els nombres en primera i segona posició són l'1. Els següents ja es poden calcular: el segon $1 + 1 = 2$, el tercer $1 + 2 = 3$, el quart $2 + 3 = 5$, etc.
+La successió de Fibonacci és una successió de nombres enters on els dos primers termes són 1 i a partir del tercer són s la suma dels dos nombres anteriors.
+Anomenem $F_n$ a l'enèsim nombre de la sèrie, i amb aquesta notació la podem expressar així: $F_1=F_2=1$ i $F_i=F_{i-1}+F_{i-2}$ per a $i \geq 2$
 
 \subsection{Implementació no-recursiva}
 \lstinputlisting[language=Python]{examples/norec/fibonacci.py}
@@ -38,18 +38,35 @@ Hi ha tres fustes i les regles són simples: només es pot canviar de lloc un di
 
 La resolució amb dos discs és simple. Comencen a la fusta A: movem el disc petit a la fusta B i a continuació movem l'altre a la fusta C. Finalment posem el primer disc sobre el gran, a la fusta C.
 
+\noindent
 \begin{center}
-	\includesvg{hanoi-2_0}
+	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_0}}
+	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_1}}
+	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_2}}
+	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_3}}
 \end{center}
 
-Per resoldre el problema amb tres discs primer hem d'aïllar els dos primers, si no, no podrem moure el tercer disc.
+Per resoldre el problema amb tres discs primer hem d'aïllar els dos primers, ja que es troben sobre el tercer i, si no ho fem, no podrem moure el tercer disc.
 Partint doncs de tenir una fusta A amb el tercer disc i una fusta C amb el primer sobre el segon, fem el quart moviment: posar el tercer disc a la fusta B.
-El que ens queda ara ja ho hem fet abans: tornar a canviar de fusta els primers dos discs. Aquesta vegada partint de la fusta C per acabar a la B, sobre el tercer disc.
+El que ens queda ara ja ho hem fet abans: tornar a canviar de fusta els primers dos discs.
+Aquesta vegada partint de la fusta C per acabar a la B, sobre el tercer disc.
+
+\noindent
+\begin{center}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_0}}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_1}}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_2}}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_3}}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_4}}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_5}}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_6}}
+	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_7}}
+\end{center}
 
 Això es va repetint a mesura que augmenta el nombre de discs, i també es pot observar una progressió matemàtica.
 Si prenem $H(n)$ com el nombre de moviments necessaris per resoldre el problema per un nombre $n$ de discs veiem que per $n=1$, $H(n)=1$ doncs només hi ha un sol disc i per moure'l a una altra fusta només cal un moviment.
 
-Amb $n=2$, $H(n)=3$, però a què es deu això? Per canviar de fusta dos discs primer hem de moure el primer ($H{(1)}$), després canviar el segon i tornar a moure el primer($H(1)$), per tant:
+Amb $n=2$, $H(n)=3$, però a què es deu això? Per canviar de fusta dos discs, primer hem de moure el primer ($H{(1)}$), després canviar el segon i tornar a moure el primer ($H(1)$), per tant:
 \begin{gather*}
 	H(2) = H(1)+1+H(1) = 2[H(1)]+1 = 2(1)+1 = 2+1 = 3
 \end{gather*}
@@ -62,6 +79,7 @@ Amb $n=3$, $H(n)=7$. Altra vegada per canviar de fusta tres discs primer hem de 
 
 \subsection{Implementació recursiva}
 La resolució algorítmica recursiva d'aquest problema és molt interessant i ben senzilla.
-De fet aquest problema sempre s'utilitza en parlar de recursivitat, perquè l'ús d'aquesta permet que . 
+De fet, l'algoritme és tan senzill i, una vegada entens el raonament, intuïtiu que el problema de les torres sempre es menciona per explicar la recursió.
 Si us hi fixeu, ja hem vist que la resolució per un nombre de discs $n$ inclou la resolució per un nombre de discs $n-1$.
+
 \lstinputlisting[language=Python]{examples/rec/hanoi.py}

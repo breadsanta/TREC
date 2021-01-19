@@ -2,14 +2,10 @@
 
 \section{Com funciona?}
 El bubble sort compara cada element de la llista amb el següent, canviant-ne la posició si el segon és més gran que el primer.
-Com que sempre movem endavant l'element més gran 
 Aquest procés es repeteix tantes vegades com faci falta per ordenar la llista.
-
-\section{Pas a pas}
-\noindent
-\makebox[\textwidth][c]{
-	% \input{tikz/bubble.tex}
-}
+Sempre movem endavant l'element més gran de manera que, progressivament, al final del vector queden ordenats els elements més grans.
+El nom \textit{bubble sort} li és donat precisament per com els elements més grans floten cap a la superfície, com si es tractés de bombolles.
+És un algoritme extremadament lent.
 
 \section{Implementació}
 \lstinputlisting[language=Python]{../scripts/bubble.py}
@@ -22,6 +18,6 @@ Aquest procés es repeteix tantes vegades com faci falta per ordenar la llista.
 		}
 	\vspace*{1em}
 	\begin{center}
-		\includesvg{bubble}
+		\resizebox{\textwidth}{!}{\includesvg{bubble}}
 	\end{center}
 \end{minipage}

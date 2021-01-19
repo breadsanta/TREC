@@ -18,6 +18,8 @@
 \usepackage{setspace}
 \usepackage{tikz}
 \usepackage{pgf}
+\usepackage{subcaption}
+\usepackage[backend=biber,style=apa,autocite=inline]{biblatex}
 
 \onehalfspacing
 
@@ -25,8 +27,9 @@
 \titleformat{\section}[hang]{\large\bfseries}{\thesection.\enspace}{0pt}{}
 
 \renewcommand{\contentsname}{Índex}
+\renewcommand{\bibname}{Bibliografia}
 
-\svgpath{{../img/svg}}
+\svgpath{../img/svg}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -55,11 +58,22 @@
 
 \lstset{style=mystyle}
 
+\newcommand{\chaptertoc}[1]{
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
+}
+
+\addbibresource{bibliografia}
+\nocite{*}
+
 % \input{tikz/tikzutils} % https://i1.kym-cdn.com/photos/images/facebook/001/264/842/220.png
 
 \title{Treball de Recerca: \\ Algoritmes d'ordenació}
 \author{Joan Coma Bages}
 \date{Curs 2020/2021}
+
+
+\bibliography{bibliografia}
 
 \begin{document}
 	\maketitle
@@ -68,13 +82,22 @@
 	\include{content/proleg}
 	\include{content/intro}
 	\include{content/ordenar_vectors}
+	
+	\part{Algoritmes iteratius}
 	\include{content/selection}
 	\include{content/insertion}
 	\include{content/bubble}
 	\include{content/shell}
+
+	\part{Algoritmes recursius}
 	\include{content/recursion}
 	\include{content/quick}
 	\include{content/merge}
+	
+	\part{Anàlisi i conclusions}
 	\include{content/comparacio}
+	\include{content/conclusions}
 
+	\phantomsection\addcontentsline{toc}{chapter}{\bibname}
+	\printbibliography
 \end{document}

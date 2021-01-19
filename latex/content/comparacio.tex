@@ -1,20 +1,18 @@
 \chapter{Comparació dels algoritmes}
 Hem vist diversos algoritmes que permeten ordenar vectors, però quin és el millor mètode?
-Com que tots els algoritmes ens retornen el mateix vector, l'ordenat, no hi ha cap algoritme que ens retorni un vector millor ordenat que un altre. Ja que els resultats són tots igual de bons optarem pel que sigui més eficient.
+Com que tots els algoritmes ens retornen el mateix vector, l'ordenat, no hi ha cap algoritme que ens retorni un vector millor ordenat que un altre. Ja que els resultats són tots igual de bons, optarem pel que sigui més eficient.
 
 \section{Cost Computacional}
 L'estudi del cost computacional d'un algoritme és l'estudi de la quantitat de recursos que consumeix. Habitualment com a recurs es pren la memòria o, i aquest és el nostre cas, el temps.
 
 Fins ara hem executat tots els algoritmes per saber-ne el temps, però això no sempre és viable.
 Ho hem vist amb el bubble sort: només amb 4000 elements ja s'hi podia estar més d'un quart d'hora, motiu pel qual amb 8000 ni tan sols l'hem executat.
-Aquest problema apareixerà tard o d'hora amb tots els algoritmes, un ho fa als 8 mil elements i un altre ho pot fer als 8 milions, per tant és vital trobar la manera d'estimar-ne el temps de computació.
+Aquest problema apareixerà tard o d'hora amb tots els algoritmes, a algun li passa als 8 mil elements i a un altre li pot passar als 8 milions, per tant és vital trobar la manera d'estimar-ne el temps de computació.
 
-El temps de computació d'un algoritme sempre depèn de la quantitat d'elements, és d'esperar que el que es triga a ordenar deu elements sigui menor que el d'ordenar-ne cent.
+El temps de computació d'un algoritme sempre depèn de la quantitat d'elements, és d'esperar que el que es triga a ordenar deu elements sigui menor que el que es triga a ordenar-ne cent.
 El temps de computació també depèn del maquinari, però aquest factor el podem eliminar si observem la relació entre dues execucions amb diferent nombre d'elements.
 És a dir, un algoritme que en duplicar el nombre d'elements duplica el temps d'execució ho farà independentment del maquinari.
 El que calcularem, doncs, és aquest augment que no depèn del maquinari sinó de l'algoritme.
-%Això es deu al fet que cada instrucció (una comparació de dos elements o un canvi de posició) triga pràcticament el mateix, una fracció de mil·lisegon, en una mateixa màquina. 
-%Per tant quan es mesura el temps realment es mesura el nombre de passos.
 
 \subsection{Fórmula}
 Comencem posant xifres a l'exemple anterior.
@@ -43,7 +41,7 @@ Si seguim generalitzant trobem que per una relació entre les mides dels vectors
 \end{gather*}
 
 Poder aproximar el valor de l'exponent $p$ serà clau per conèixer el temps de computació.
-La relació entre un vector de 10 elements i un de 10000 és $\frac{10000}{10} = 1000$. Amb un exponent $p$ d'1 només ens costaria mil vegades més ordenar un vector mil vegades més gran, ja que $1000^1 = 1000$.
+La relació entre un vector de 10 elements i un de 10.000 és $\frac{10000}{10} = 1000$. Amb un exponent $p$ d'1 només ens costaria mil vegades més ordenar un vector mil vegades més gran, ja que $1000^1 = 1000$.
 Si aquest exponent fos 2, el vector mil vegades més gran trigaria un milió de vegades el temps original, $1000^2 = 1000000$.
 
 Partint de la fórmula generalitzada $\frac{t(mn)}{t(n)} = m^p
@@ -56,7 +54,7 @@ $ que acabem d'obtenir aïllarem $p$ de la següent manera:
 \subsection{Càlcul}
 Si volem calcular l'exponent $p$ aplicant la fórmula que acabem de definir necessitem dos valors: temps d'execució per un nombre d'elements $n$ i el temps d'execució per un nombre d'elements $n \times m$.
 
-No és casualitat que tots els algoritmes els hàgim executat amb 125, 250, 500, 1000, 2000, 4000 i 8000 elements.
+No és casualitat que tots els algoritmes els haguem executat amb 125, 250, 500, 1000, 2000, 4000 i 8000 elements.
 Els més destres amb les xifres podran observar que cada nombre d'aquesta sèrie és el doble que l'anterior.
 Per calcular l'exponent
 
@@ -87,5 +85,5 @@ Lleugerament per sobre de 2, els algoritmes de selecció i inserció tenen valor
 Finalment, molt per sobre la resta, el bubble sort amb l'exponent $p$ de $3.0118$
 
 \begin{center}
-	\includesvg{plot}
+	\resizebox{\textwidth}{!}{\includesvg{plot}}
 \end{center}
