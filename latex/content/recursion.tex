@@ -18,9 +18,11 @@ Per exemple, el factorial de 4, o $4!$, és el següent:
 
 \subsection{Implementació no-recursiva}
 \lstinputlisting[language=Python]{examples/norec/factorial.py}
+\vspace{1em}
 
 \subsection{Implementació recursiva}
 \lstinputlisting[language=Python]{examples/rec/factorial.py}
+\vspace{1em}
 
 \section{Successió de Fibonacci}
 La successió de Fibonacci és una successió de nombres enters on els dos primers termes són 1 i a partir del tercer són s la suma dels dos nombres anteriors.
@@ -28,40 +30,58 @@ Anomenem $F_n$ a l'enèsim nombre de la sèrie, i amb aquesta notació la podem 
 
 \subsection{Implementació no-recursiva}
 \lstinputlisting[language=Python]{examples/norec/fibonacci.py}
+\vspace{1em}
 
 \subsection{Implementació recursiva}
 \lstinputlisting[language=Python]{examples/rec/fibonacci.py}
+\vspace{1em}
 
 \section{Torres de Hanoi}
-Les Torres de Hanoi és un problema que consisteix a moure discs apilats de diverses mides d'una fusta a una altra.
+El problema de les Torres de Hanoi consisteix a moure discs apilats de diverses mides d'una fusta a una altra.
 Hi ha tres fustes i les regles són simples: només es pot canviar de lloc un disc a la vegada i un disc més gran no es pot posar sobre un de més petit.
 
 La resolució amb dos discs és simple. Comencen a la fusta A: movem el disc petit a la fusta B i a continuació movem l'altre a la fusta C. Finalment posem el primer disc sobre el gran, a la fusta C.
 
-\noindent
-\begin{center}
-	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_0}}
-	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_1}}
-	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_2}}
-	\resizebox{0.49\textwidth}{!}{\includesvg{hanoi/hanoi-2_3}}
-\end{center}
+\vspace{1em}
+\begin{centering}
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-2_0}}\hfill
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-2_1}}
+	
+	\vspace{2em}
+
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-2_2}}\hfill
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-2_3}}
+
+\end{centering}
+\vspace{1em}
 
 Per resoldre el problema amb tres discs primer hem d'aïllar els dos primers, ja que es troben sobre el tercer i, si no ho fem, no podrem moure el tercer disc.
 Partint doncs de tenir una fusta A amb el tercer disc i una fusta C amb el primer sobre el segon, fem el quart moviment: posar el tercer disc a la fusta B.
 El que ens queda ara ja ho hem fet abans: tornar a canviar de fusta els primers dos discs.
 Aquesta vegada partint de la fusta C per acabar a la B, sobre el tercer disc.
 
-\noindent
-\begin{center}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_0}}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_1}}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_2}}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_3}}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_4}}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_5}}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_6}}
-	\resizebox{0.32\textwidth}{!}{\includesvg{hanoi/hanoi-3_7}}
-\end{center}
+\vspace{1em}
+\begin{centering}
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_0}}\hfill
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_1}}
+	
+	\vspace{2em}
+
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_2}}\hfill
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_3}}
+
+	\vspace{2em}
+	
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_4}}\hfill
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_5}}
+	
+	\vspace{2em}
+
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_6}}\hfill
+	\resizebox{0.48\textwidth}{!}{\includesvg{hanoi/hanoi-3_7}}
+
+\end{centering}
+\vspace{1em}
 
 Això es va repetint a mesura que augmenta el nombre de discs, i també es pot observar una progressió matemàtica.
 Si prenem $H(n)$ com el nombre de moviments necessaris per resoldre el problema per un nombre $n$ de discs veiem que per $n=1$, $H(n)=1$ doncs només hi ha un sol disc i per moure'l a una altra fusta només cal un moviment.
@@ -83,3 +103,4 @@ De fet, l'algoritme és tan senzill i, una vegada entens el raonament, intuïtiu
 Si us hi fixeu, ja hem vist que la resolució per un nombre de discs $n$ inclou la resolució per un nombre de discs $n-1$.
 
 \lstinputlisting[language=Python]{examples/rec/hanoi.py}
+\vspace{1em}

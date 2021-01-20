@@ -14,12 +14,8 @@
 \usepackage{svg}
 \usepackage{cancel}
 \usepackage{booktabs}
-\usepackage{longtable}
 \usepackage{setspace}
-\usepackage{tikz}
-\usepackage{pgf}
 \usepackage{subcaption}
-\usepackage[backend=biber,style=apa,autocite=inline]{biblatex}
 
 \onehalfspacing
 
@@ -58,22 +54,18 @@
 
 \lstset{style=mystyle}
 
+\hyphenation{pro-ble-mes}
+
 \newcommand{\chaptertoc}[1]{
     \chapter*{#1}
     \addcontentsline{toc}{chapter}{#1}
 }
 
-\addbibresource{bibliografia}
-\nocite{*}
-
-% \input{tikz/tikzutils} % https://i1.kym-cdn.com/photos/images/facebook/001/264/842/220.png
 
 \title{Treball de Recerca: \\ Algoritmes d'ordenació}
-\author{Joan Coma Bages}
-\date{Curs 2020/2021}
-
-
-\bibliography{bibliografia}
+\author{Joan Coma Bages \\ Tutor: Javier Buj}
+\date{Curs 2020/2021 \\ IES Gelida}
+\titlespacing*{\chapter}{0pt}{-50pt}{30pt}
 
 \begin{document}
 	\maketitle
@@ -98,6 +90,8 @@
 	\include{content/comparacio}
 	\include{content/conclusions}
 
-	\phantomsection\addcontentsline{toc}{chapter}{\bibname}
-	\printbibliography
+	\include{content/agraiments}
+
+	\include{content/biblio}
+	
 \end{document}

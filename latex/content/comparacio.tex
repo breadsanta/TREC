@@ -6,7 +6,7 @@ Com que tots els algoritmes ens retornen el mateix vector, l'ordenat, no hi ha c
 L'estudi del cost computacional d'un algoritme és l'estudi de la quantitat de recursos que consumeix. Habitualment com a recurs es pren la memòria o, i aquest és el nostre cas, el temps.
 
 Fins ara hem executat tots els algoritmes per saber-ne el temps, però això no sempre és viable.
-Ho hem vist amb el bubble sort: només amb 4000 elements ja s'hi podia estar més d'un quart d'hora, motiu pel qual amb 8000 ni tan sols l'hem executat.
+Ho hem vist amb el \textit{bubble sort}: només amb 4000 elements ja s'hi podia estar més d'un quart d'hora, motiu pel qual amb 8000 ni tan sols l'hem executat.
 Aquest problema apareixerà tard o d'hora amb tots els algoritmes, a algun li passa als 8 mil elements i a un altre li pot passar als 8 milions, per tant és vital trobar la manera d'estimar-ne el temps de computació.
 
 El temps de computació d'un algoritme sempre depèn de la quantitat d'elements, és d'esperar que el que es triga a ordenar deu elements sigui menor que el que es triga a ordenar-ne cent.
@@ -42,7 +42,7 @@ Si seguim generalitzant trobem que per una relació entre les mides dels vectors
 
 Poder aproximar el valor de l'exponent $p$ serà clau per conèixer el temps de computació.
 La relació entre un vector de 10 elements i un de 10.000 és $\frac{10000}{10} = 1000$. Amb un exponent $p$ d'1 només ens costaria mil vegades més ordenar un vector mil vegades més gran, ja que $1000^1 = 1000$.
-Si aquest exponent fos 2, el vector mil vegades més gran trigaria un milió de vegades el temps original, $1000^2 = 1000000$.
+Si aquest exponent fos 2, el vector mil vegades més gran trigaria un milió de vegades el temps original, $1000^2 = 1.000.000$.
 
 Partint de la fórmula generalitzada $\frac{t(mn)}{t(n)} = m^p
 $ que acabem d'obtenir aïllarem $p$ de la següent manera:
@@ -56,7 +56,7 @@ Si volem calcular l'exponent $p$ aplicant la fórmula que acabem de definir nece
 
 No és casualitat que tots els algoritmes els haguem executat amb 125, 250, 500, 1000, 2000, 4000 i 8000 elements.
 Els més destres amb les xifres podran observar que cada nombre d'aquesta sèrie és el doble que l'anterior.
-Per calcular l'exponent
+Per calcular l'exponent necessitem els temps d'execució, que estan recollits en la següent taula.
 
 \vspace*{1em}
 \noindent
@@ -65,24 +65,31 @@ Per calcular l'exponent
 }
 \vspace*{1em}
 
-Prenent els temps d'aquesta taula podem calcular $p$ per qualsevol algoritme.
-Si substituir $n$ per una quantitat d'elements i $m$ per 2 obtenim $p$ entre el nombre d'elements entre el gran i el petit per calcular l'exponent $p$ de dos vectors.
+El càlcul de l'exponent necessita els temps d'execució amb dos vectors de diferents dimensions. Si calculéssim el del \textit{bubble sort} podríem prendre el temps de 125 i 250 elements, $0.0283$ i $0.2121$ segons.
+Com que un és el doble que l'altre, $m$ val 2.
 
+\begin{gather*}	
+	p = \frac{\log(t(mn))-\log(t(n))}{\log(m)} = \frac{\log(t(0.2121))-\log(t(0.0283))}{\log(2)} = 2.9049
+\end{gather*}
 
-Ara, amb els temps d'execució de cada algoritme, podem calcular el valor de $p$.
-Prenem com a $n$ el nombre d'elements i com a $m$ 2 per calcular la relació amb la següent quantitat d'elements per completar la següent taula.
-La mitjana l'obtenim amb aquests valors i podem comprovar que té el mateix valor que l'exponent $p$ calculat amb els vectors més petit i més gran. $m$ en aquest cas té valor de 64 ($\frac{8000}{125} = 64$), excepte amb el bubble sort, que és de 32 ($\frac{4000}{125} = 32$, no l'hem executat amb 8000 elements).
+Si repetim aquest càlcul amb totes les quantitats d'elements i tots els algoritmes podem començar a omplir la pròxima taula.
+
+Quan tinguem aquests exponents comprovarem que no n'hi ha cap d'igual. Cal recordar que el temps d'execució depèn del vector, que generem de forma aleatòria, i per tant pot variar.
+Precisament per això prenem més d'una mesura, fent la mitjana de tots els exponents de cada algoritme podem obtenir un resultat més fiable.
+
+A la nostra taula hi podem afegir una columna més $8000/125$ on ttrobem calculat l'exponent $p$ amb els vectors més gran i més petit de cada algoritme.
+Això vol dir que $m$ val 64 ($\frac{8000}{125} = 64$), excepte amb el \textit{bubble sort}, que és de 32 ($\frac{4000}{125} = 32$, recordem que no l'hem executat amb 8000 elements.
 
 \vspace*{1em}
 \noindent
-\makebox[\textwidth][c]{
+\begin{center}
 	\input{tables/exp.tex}
-}
+\end{center}
 \vspace*{1em}
 
-Observem que el merge sort té el menor exponent, $p=1.1268$, seguit del shell sort amb $p=1.2077$ i el quick sort amb $p=1.7769$.
+Observem que el \textit{merge sort} té el menor exponent, $p=1.1268$, seguit del \textit{shell sort} amb $p=1.2077$ i el \textit{quick sort} amb $p=1.7769$.
 Lleugerament per sobre de 2, els algoritmes de selecció i inserció tenen valors de $p$ de $2.051$ i $2.0333$.
-Finalment, molt per sobre la resta, el bubble sort amb l'exponent $p$ de $3.0118$
+Finalment, molt per sobre la resta, el \textit{bubble sort} amb l'exponent $p$ de $3.0118$
 
 \begin{center}
 	\resizebox{\textwidth}{!}{\includesvg{plot}}

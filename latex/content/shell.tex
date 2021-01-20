@@ -1,23 +1,24 @@
 \chapter{Shell sort}
 
 \section{Com funciona?}
-L'ordenació shell és un algoritme que es pot considerar una millora de l'insertion sort.
+L'ordenació \textit{shell} és un algoritme que es pot considerar una millora de l'\textit{insertion sort}.
 Recordem que aquest algoritme anava iterant sobre tots els elements i en cada iteració comparava l'element amb els anteriors, fent que tots els elements ja iterats estiguessin en ordre.
 
 És un bon algoritme, però què passaria si trobéssim l'element més gran de tots en la primera posició de la llista?
 Com que tots els elements restants han de passar davant d'aquest estarem fent moltes comparacions que ens podríem estalviar si aquest element màxim es trobés més endavant.
 
-El shell sort aspira a mitigar aquest problema introduint unes quantes iteracions a l'inici de l'algoritme que no comparen l'element amb el següent sinó que ho fan amb un que es troba més enllà.
+El \textit{shell sort} aspira a mitigar aquest problema introduint unes quantes iteracions a l'inici de l'algoritme que no comparen l'element amb el següent sinó que ho fan amb un que es troba més enllà.
 Això permet aproximar a les seves posicions pertinents els elements que se'n trobin lluny.
 
-Si recuperem l'exemple del major element en primera posició el el shell sort aconsegueix en la primera iteració és situar-lo al bell mig del vector.
+Si recuperem l'exemple del major element en primera posició el \textit{shell sort} aconsegueix en la primera iteració és situar-lo al bell mig del vector.
 En la següent iteració el desplaçarà fins a tres quartes parts endins, i així successivament.
 
-Generalitzant això, el shell sort comença agafant el primer element, i el compara no amb el segon sinó amb l'enèsim. El que sigui més petit ocupa la posició del primer i continua així amb la resta d'elements fins que arriba al final de la llista. Aleshores torna a començar però fent els salts entre el primer i l'enèsim element cada vegada més petits.
-L'última iteració es fa amb salts d'u, comparant tots els elements un rere l'altre, tal com ho fa l'insertion sort.
+Generalitzant això, el \textit{shell sort} comença agafant el primer element, i el compara no amb el segon sinó amb l'enèsim. El que sigui més petit ocupa la posició del primer i continua així amb la resta d'elements fins que arriba al final de la llista. Aleshores torna a començar però fent els salts entre el primer i l'enèsim element cada vegada més petits.
+L'última iteració es fa amb salts d'u, comparant tots els elements un rere l'altre, tal com ho fa l'\textit{insertion sort}.
 
 \section{Implementació}
 \lstinputlisting[language=Python]{../scripts/shell.py}
+\vspace{1em}
 
 \begin{minipage}{\textwidth}
 	\section{Rendiment}
